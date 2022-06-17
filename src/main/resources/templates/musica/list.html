@@ -1,73 +1,309 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <title>Spotmusic</title>
 
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
 
-    
-    <link href="/css/style.css" rel="stylesheet"/>
-</head>
-<body>
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+  <body
+    style="
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    "
+  >
+    <div class="container" style="align-items: center; justify-content: center">
+        <div style="position: absolute; left: 20px; top: 20px;">
+            <a style="text-decoration: none; font-size: 80px; color: blueviolet;" class="btn btn-light" th:href="@{/playlists/listar}">⇦</a>
+        </div>
+      <div
+        class="jumbotron"
+        style="
+          margin-top: 10px;
+          flex: 1;
+          display: flex;
+          width: 100%;
+          height: 150px;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        "
+      >
+        <h1
+          style="
+            color: #fff;
+            border-radius: 10px 50px 10px 50px;
+            width: 300px;
+            height: 200px;
+            background-color: blueviolet;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex: 1;
+            display: flex;
+          "
+        >
+          Spotmusic
+        </h1>
+      </div>
 
-<div class="container">
-    <div class="jumbotron">
-        <h1>Spotmusic</h1>
-    </div>
+      <div
+        style="
+          display: flex;
+          width: 100%;
+          height: 80px;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <h4 style="font-size: 30px; color: blueviolet">Nova playlist</h4>
+      </div>
 
-    <div>
-        <a class="btn btn-primary" th:href="@{/playlists/{playlistId}/musicas/cadastro(playlistId=${playlistId})}">Nova música</a>
-    </div>
-
-    <hr/>
-    <div th:if="${musicas != null}">
-        <h4>
+      <hr />
+      <div
+        th:if="${musicas != null}"
+        style="
+          border-radius: 20px;
+          padding: 10px;
+          background-color: #fff;
+          margin-top: 50px;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div
+          style="
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <h4
+            style="
+              color: blueviolet;
+              font-size: 30px;
+              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                sans-serif;
+            "
+          >
             Músicas da playlist
-        </h4>
-
-        <div th:if="${mensagem != null}">
-            <div class="alert alert-info" role="alert">
-                <span th:text="${mensagem == null ? '&nbsp;' : mensagem}">mensagem</span>
-            </div>
+          </h4>
+        </div>
+        <div
+          style="
+            position: absolute;
+            text-align: center;
+            border-radius: 50px 10px 50px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-weight: bold;
+            width: 170px;
+            height: 40px;
+            background-color: black;
+          "
+          th:if="${mensagem != null}"
+        >
+          <div class="alert alert-info" role="alert">
+            <span
+              style="font-size: 14px"
+              th:text="${mensagem == null ? '&nbsp;' : mensagem}"
+              >mensagem</span
+            >
+          </div>
         </div>
 
-        <table class="table">
-            <thead>
+        <table class="table" style="color: blueviolet">
+          <thead>
             <tr>
-                <th>Nome</th>
-                <th>Banda</th>
-                <th>Nota</th>
-                <th>Ação</th>
+              <th>Nome</th>
+              <th>Banda</th>
+              <th>Nota</th>
+              <th>Ação</th>
             </tr>
-            </thead>
-            <tr th:each="musica : ${musicas}">
-                <td th:text="${musica.titulo}">titulo</td>
-                <td th:text="${musica.banda}">banda</td>
-                <td th:text="${musica.nota}">nota</td>
-                <td>
-                    <a class="btn btn-sm btn-info" th:href="@{/playlists/{playlistId}/musicas/{musicaId}/atualizar(playlistId=${playlistId},musicaId=${musica.id})}">Editar</a>
-                    <a class="btn btn-sm btn-danger" th:href="@{/playlists/{playlistId}/musicas/{musicaId}/remover(playlistId=${playlistId},musicaId=${musica.id})}">Excluir</a>
-                </td>
-            </tr>
+          </thead>
+          <tr th:each="musica : ${musicas}">
+            <td
+              style="
+                text-align: center;
+                border-radius: 50px 10px 50px 10px;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                font-weight: bold;
+                width: 200px;
+                height: 40px;
+                text-decoration: none;
+                background-color: blueviolet;
+              "
+              th:text="${musica.titulo}"
+            >
+              titulo
+            </td>
+            <td
+              style="
+                text-align: center;
+                border-radius: 50px 10px 50px 10px;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                font-weight: bold;
+                width: 200px;
+                height: 40px;
+                text-decoration: none;
+                background-color: blueviolet;
+              "
+              th:text="${musica.banda}"
+            >
+              banda
+            </td>
+            <td
+              style="
+                text-align: center;
+                border-radius: 50px 10px 50px 10px;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                font-weight: bold;
+                width: 200px;
+                height: 40px;
+                text-decoration: none;
+                background-color: blueviolet;
+              "
+              th:text="${musica.nota}"
+            >
+              nota
+            </td>
+            <td>
+              <div
+                style="
+                  margin-left: 350px;
+                  flex-direction: row;
+                  width: 220px;
+                  display: flex;
+                  justify-content: space-between;
+                "
+              >
+                <div
+                  style="
+                    border-radius: 10px 50px 10px 50px;
+                    width: 80px;
+                    height: 40px;
+                    background-color: rebeccapurple;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <a
+                    style="text-decoration: none; color: #fff"
+                    class="btn btn-sm btn-info"
+                    th:href="@{/playlists/{playlistId}/musicas/{musicaId}/atualizar(playlistId=${playlistId},musicaId=${musica.id})}"
+                    >Editar</a
+                  >
+                </div>
+                <div
+                  style="
+                    border-radius: 10px 50px 10px 50px;
+                    width: 80px;
+                    height: 40px;
+                    background-color: rebeccapurple;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <a
+                    style="text-decoration: none; color: #fff"
+                    class="btn btn-sm btn-danger"
+                    th:href="@{/playlists/{playlistId}/musicas/{musicaId}/remover(playlistId=${playlistId},musicaId=${musica.id})}"
+                    >Excluir</a
+                  >
+                </div>
+              </div>
+            </td>
+          </tr>
         </table>
-    </div>
-
-    <div th:if="${#lists.isEmpty(musicas)}">
-        <div class="alert alert-info" role="alert">
+        <div
+        style="
+          margin-left: 37%;
+          width: 400px;
+          height: 150px;
+          position: absolute;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          top: 50px;
+          left: 600px;
+        "
+      >
+        <button
+          style="
+            box-shadow: 10px 10px 10px blueviolet;
+            display: flex;
+            width: 250px;
+            height: 80px;
+            background-color: blueviolet;
+            border: solid 1px black;
+            border-radius: 0px 30px 30px 0px;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+          "
+        >
+          <a
+            style="
+              padding-top: 10px;
+              font-size: 30px;
+              text-decoration: none;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              color: white;
+              font-weight: bold;
+            "
+            class="btn btn-light"
+            th:href="@{/playlists/67/musicas/cadastro}"
+            >Cadastrar</a
+          >
+        </button>
+      </div>
+        <div th:if="${#lists.isEmpty(musicas)}">
+          <div
+            style="
+              color: #fff;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              border-radius: 20px;
+              width: 180px;
+              height: 35px;
+              display: flex;
+              background-color: blueviolet;
+            "
+            class="alert alert-info"
+            role="alert"
+          >
             <span class="glyphicon glyphicon-exclamation-sign"></span>
-            0 músicas cadastradas!
+            0 músicas cadastradas ☹
+          </div>
         </div>
+        
+      </div>
+     
+      
+
+      <div style="width: 100%; height: 100px; position: absolute; top: 700px">
+        <footer class="footer">
+          <p>&copy; 2022 Dharlison Dhovan</p>
+        </footer>
+      </div>
     </div>
-
-    <hr/>
-    <a class="btn btn-light" th:href="@{/playlists/listar}">Voltar</a>
-
-    <hr/>
-    <footer class="footer">
-        <p>&copy; 2022 Dharlison Dhovan</p>
-    </footer>
-
-</div>
-</body>
+  </body>
 </html>

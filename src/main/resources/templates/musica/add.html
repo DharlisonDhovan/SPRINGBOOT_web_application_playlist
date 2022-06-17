@@ -9,49 +9,99 @@
     
     <link href="/css/style.css" rel="stylesheet"/>
 </head>
-<body>
+<body  style="
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+">
 
-<div class="container">
-    <div class="jumbotron">
-        <h1>Spotmusic</h1>
+<div class="container" tyle=" align-items: center; justify-content: center ">
+    <div class="jumbotron"  style="
+    margin-top: 10px;
+    flex: 1;
+    display: flex;
+    width: 100%;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+  ">
+        <h1  style="
+        color: #fff;
+        border-radius: 10px 50px 10px 50px;
+        width: 300px;
+        height: 200px;
+        background-color: blueviolet;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex: 1;
+        display: flex;
+      ">Spotmusic</h1>
     </div>
 
-    <h4>
-        Nova música
-    </h4>
-
-    <form th:action="@{/playlists/{playlistId}/musicas/salvar(playlistId=${playlistId})}" th:method="${musica.id} == 0 ? post : put" th:object="${musica}">
-        <div class="row">
-            <input id="id" type="hidden" th:field="*{id}"/>
-            <div class="form-group col-md-4">
-                <label for="titulo">Título:</label>
-                <input class="form-control" id="titulo" type="text" th:field="*{titulo}"/>
-                <div th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
+    <div style="display: flex; width: 100%; height: 80px; align-items: center; justify-content: center;">
+        <h4 style="font-size: 30px; color: blueviolet;">
+            Nova música 
+        </h4>
+      </div>
+      <div style=" display: flex; justify-content: center; align-items: center; width: 100%; height: 400px; ">
+        <form style="width: 300px; height: 350px; background-color: blueviolet; display: flex; justify-content: center; align-items: center; flex-direction: column; box-shadow: 5px 5px 5px 5px blueviolet; border-radius: 30px 10px 30px 10px;" th:action="@{/playlists/{playlistId}/musicas/salvar(playlistId=${playlistId})}" th:method="${musica.id} == 0 ? post : put" th:object="${musica}">
+            <div style="position: absolute; top: 280px; font-size: 60px; color: #fff;" >♫</div>
+            <div class="row">
+                <input id="id" type="hidden" th:field="*{id}"/>
+                <div style="flex-direction: column; display: flex;" class="form-group col-md-4">
+                    <label for="titulo">Título:</label>
+                    <input class="form-control" id="titulo" type="text" th:field="*{titulo}"/>
+                    <div th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
+                </div>
+    
+                <div style="flex-direction: column; display: flex;" class="form-group col-md-4">
+                    <label for="banda">Banda:</label>
+                    <input class="form-control" id="banda" type="text" th:field="*{banda}"/>
+                    <div th:if="${#fields.hasErrors('banda')}" th:errors="*{banda}"></div>
+                </div>
+    
+                <div style="flex-direction: column; display: flex;" class="form-group col-md-4">
+                    <label for="nota">Nota:</label>
+                    <input class="form-control" id="nota" type="number" th:field="*{nota}"/>
+                    <div th:if="${#fields.hasErrors('nota')}" th:errors="*{nota}"></div>
+                </div>
+    
             </div>
-
-            <div class="form-group col-md-4">
-                <label for="banda">Banda:</label>
-                <input class="form-control" id="banda" type="text" th:field="*{banda}"/>
-                <div th:if="${#fields.hasErrors('banda')}" th:errors="*{banda}"></div>
+            
+            <div class="form-group" style=" display: flex; width: 220px;height: 50px; margin-top: 250px; position: absolute; justify-content: space-around;">
+                <button class="btn btn-primary" type="submit" style="color: blueviolet; background-color: white; border-radius: 20px 10px 20px 10px; width: 100px;height: 40px; font-size: 20px; font-weight: bold;">Salvar</button>
+                <button style="color: blueviolet; background-color: white; border-radius: 20px 10px 20px 10px; width: 100px;height: 40px; font-size: 20px; font-weight: bold;"><a style="text-decoration: none;" class="btn btn-light" th:href="@{/playlists/{playlistId}/musicas/listar(playlistId=${playlistId})}">Voltar</a></button>
             </div>
-
-            <div class="form-group col-md-4">
-                <label for="nota">Nota:</label>
-                <input class="form-control" id="nota" type="number" th:field="*{nota}"/>
-                <div th:if="${#fields.hasErrors('nota')}" th:errors="*{nota}"></div>
+        </form>
+    </div>
+    <div style="flex: 1;display: flex;justify-content: center;align-items: center; width: 520px; height: 520px; border-radius: 50%; border: solid blueviolet 10px; position: absolute; right: -100px; top: 350px;">
+        <div style="padding: 15px; width: 450px; height: 450px; border-radius: 50%; border: solid blueviolet 10px; right: -100px; top: 350px;">
+            <div style="padding: 15px; width: 400px; height: 400px; border-radius: 50%; border: solid blueviolet 10px; right: -100px; top: 350px;">
+                <div style="padding: 15px; width: 350px; height: 350px; border-radius: 50%; border: solid blueviolet 10px; right: -100px; top: 350px;">
+                    <div style="padding: 15px; width:300px; height: 300px; border-radius: 50%; border: solid blueviolet 10px; right: -100px; top: 350px;">
+                        <div style="align-items: center;justify-content: center;text-align: center;display: flex; background-color: blueviolet; padding: 15px; width: 250px; height: 250px; border-radius: 50%; border: solid blueviolet 10px; right: -100px; top: 350px;">
+                            <h1 style="font-size: 150px; color: #fff;">♫</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
-        <div class="form-group">
-            <button class="btn btn-primary" type="submit">Salvar</button>
         </div>
-
-    </form>
-    <hr/>
-
-    <a class="btn btn-light" th:href="@{/playlists/{playlistId}/musicas/listar(playlistId=${playlistId})}">Voltar</a>
-
-    <hr/>
+        <div style="flex: 1;display: flex;justify-content: center;align-items: center; width: 520px; height: 520px; border-radius: 50%; border: solid blueviolet 10px; position: absolute; left: -150px; top: -200px;">
+            <div style="padding: 15px; width: 450px; height: 450px; border-radius: 50%; border: solid blueviolet 10px; right: -100px; top: 350px;">
+                <div style="padding: 15px; width: 400px; height: 400px; border-radius: 50%; border: solid blueviolet 10px; right: -100px; top: 350px;">
+                    <div style="padding: 15px; width: 350px; height: 350px; border-radius: 50%; border: solid blueviolet 10px; right: -100px; top: 350px;">
+                        <div style="padding: 15px; width:300px; height: 300px; border-radius: 50%; border: solid blueviolet 10px; right: -100px; top: 350px;">
+                            <div style="align-items: center;justify-content: center;text-align: center;display: flex; background-color: blueviolet; padding: 15px; width: 250px; height: 250px; border-radius: 50%; border: solid blueviolet 10px; right: -150px; top: 200px;">
+                                <h1 style="font-size: 150px; color: #fff;">♫</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+   
     <footer class="footer">
         <p>&copy; 2022 Dharlison Dhovan</p>
     </footer>
